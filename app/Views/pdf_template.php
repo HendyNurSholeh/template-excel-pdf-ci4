@@ -60,13 +60,14 @@ $datalogo = "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAMCAgICAgMC
         <h1 style="margin-top: 20px;">Laporan Stok Barang</h1>
     </div>
     <div class="content">
+        <h3 style="margin-top: 20px;">List Daftar stok barang saat ini:</h3>
         <table class="table">
             <thead>
                 <tr>
                     <th>Nama Barang</th>
                     <th>Kategori</th>
-                    <th>Satuan</th>
                     <th>Stok</th>
+                    <th>Satuan</th>
                 </tr>
             </thead>
             <tbody>
@@ -74,8 +75,8 @@ $datalogo = "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAMCAgICAgMC
                 <tr>
                     <td><?= $item['Nama'] ?></td>
                     <td><?= $item['Kategori'] ?></td>
-                    <td><?= $item['Satuan'] ?></td>
                     <td><?= $item['Stok'] ?></td>
+                    <td><?= $item['Satuan'] ?></td>
                 </tr>
                 <?php endforeach; ?>
             </tbody>

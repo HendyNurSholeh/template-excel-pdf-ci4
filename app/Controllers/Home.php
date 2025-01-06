@@ -60,7 +60,7 @@ public function exportPdf()
     $options->set('isHtml5ParserEnabled', true);
     $dompdf->setOptions($options);
     $dompdf->loadHtml($html);
-    $dompdf->setPaper('A4', 'landscape');
+    $dompdf->setPaper('A4', 'potrait');
     $dompdf->render();
     $dompdf->stream('stock_list.pdf', ['Attachment' => 1]);
     exit;
