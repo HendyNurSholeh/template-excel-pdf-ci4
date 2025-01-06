@@ -244,6 +244,7 @@
 
         <div class="menu">
             <a href="/export-excel">export</a>
+            <a href="/export-pdf">export pdf</a>
             <ul>
                 <li class="logo">
                     <a href="https://codeigniter.com" target="_blank">

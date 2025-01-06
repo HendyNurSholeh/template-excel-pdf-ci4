@@ -7,3 +7,4 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Home::index');
 $routes->get('/export-excel', 'Home::exportExcel');
+$routes->get('/export-pdf', 'Home::exportPdf');

@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use Dompdf\Dompdf;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 
 class Home extends BaseController
@@ -42,4 +43,27 @@ public function exportExcel()
     $writer->save('php://output');
     exit;
 }
+public function exportPdf()
+{
+    $data = [
+        ['Nama' => 'Laptop', 'Kategori' => 'Elektronik', 'Satuan' => 'Unit', 'Stok' => 10],
+        ['Nama' => 'Mouse', 'Kategori' => 'Aksesoris', 'Satuan' => 'Unit', 'Stok' => 50],
+        ['Nama' => 'Keyboard', 'Kategori' => 'Aksesoris', 'Satuan' => 'Unit', 'Stok' => 30],
+        ['Nama' => 'Monitor', 'Kategori' => 'Elektronik', 'Satuan' => 'Unit', 'Stok' => 20],
+        ['Nama' => 'Printer', 'Kategori' => 'Elektronik', 'Satuan' => 'Unit', 'Stok' => 15],
+    ];
+
+    $html = view('pdf_template', ['data' => $data]);
+
+    $dompdf = new Dompdf();
+    $options = new \Dompdf\Options();
+    $options->set('isHtml5ParserEnabled', true);
+    $dompdf->setOptions($options);
+    $dompdf->loadHtml($html);
+    $dompdf->setPaper('A4', 'landscape');
+    $dompdf->render();
+    $dompdf->stream('stock_list.pdf', ['Attachment' => 1]);
+    exit;
+}
+    
 }
